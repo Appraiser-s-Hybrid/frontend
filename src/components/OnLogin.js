@@ -4,7 +4,27 @@ import * as Yup from 'yup';
 import axios from 'axios';
 
 const OnLogin = () => {
-    const [userSearch, setUserSearch] = useState([]);
+    const [params, setParams] = useState([]);
+    const [param, setParam] = useState('');
+    const [search, setSearch] = useState('');
+    const [filteredParams, setFilteredParams] = useState([]);
+
+    const onInputChange = e => {
+        const { value } = e.target;
+        setParam(value);
+    };
+
+    const onSearchChange = e => {
+        const { value } = e.target;
+        setSearch(value);
+        setFilteredParams(params.filter(param => param.includes(search)));
+    }
+
+    const onFormSubmit = e => {
+        e.preventDefault();
+        setParams([...params, param]);
+        setParam('');
+    };
 
 
     return (
