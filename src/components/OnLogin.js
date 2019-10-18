@@ -39,7 +39,7 @@ const OnLogin = ({ values, errors, touched, status }) => {
             <Form className="user-form">
                 <label>
                     Square Feet: 
-                <Field type="number" name="sqft" placeholder="Square Feet" />
+                <Field type="number" name="sqft" placeholder="Square Feet" min="0" />
                 {touched.sqft && errors.sqft &&(
                     <p className="error">{errors.sqft}</p>
                 )}
@@ -47,7 +47,7 @@ const OnLogin = ({ values, errors, touched, status }) => {
 
                 <label>
                     Zip Code: 
-                <Field type="number" name="zip" placeholder="Zip Code" />
+                <Field type="number" name="zip" placeholder="Zip Code" min="0" />
                 {touched.zip && errors.zip &&(
                     <p className="error">You must enter a Zip Code in order to receive results!</p>
                 )}
@@ -55,7 +55,7 @@ const OnLogin = ({ values, errors, touched, status }) => {
 
                 <label>
                     Number of Rooms: 
-                <Field type="number" name="rooms" placeholder="Numbe of Rooms" />
+                <Field type="number" name="rooms" placeholder="Numbe of Rooms" min="0" />
                 {touched.rooms && errors.rooms &&(
                     <p className="error">{errors.rooms}</p>
                 )}
@@ -63,7 +63,7 @@ const OnLogin = ({ values, errors, touched, status }) => {
 
                 <label>
                     Number of Bathrooms: 
-                <Field type="number" name="bathrooms" placeholder="Number of Bedrooms" />
+                <Field type="number" name="bathrooms" placeholder="Number of Bedrooms" min="0" />
                 {touched.bathrooms && errors.bathrooms &&(
                     <p className="error">{errors.bathrooms}</p>
                 )}
