@@ -1,5 +1,10 @@
 .App {
+  
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -19,4 +24,31 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+
+.signup-class{
+  text-decoration: none;
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid white;
+
+}
+.signup-class:hover{
+  background-color:white ;
+  border: 1px solid white;
+  color: #976363;
+}
+
+
+.btn-hover:hover{
+  background-color: white;
+  color: #976363;
+
+}
+
+.input:focus{
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
+  border: 1px solid maroon;
 }

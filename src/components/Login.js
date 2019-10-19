@@ -3,7 +3,70 @@ import React, { useState } from "react";
 import Style from 'styled-components';
 import { Link, Route } from 'react-router-dom';
 
-const DIV = Style.div``
+
+const BKGRNDDIV = Style.div`
+background-color: #C4C4C4;
+border-radius: 5px;
+padding: 15px;
+width: 390px;
+`
+const TITLEDIV = Style.div`
+background-color: #F6F6F6;
+height: 60px; 
+border-radius: 6px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 3%;
+font-size: 1.4rem;
+`
+
+const DIV = Style.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: #976363;
+border-radius: 5px;
+padding: 3%;
+margin-top: 40px;
+
+`
+const FORM = Style.form`
+display: flex;
+flex-direction: column;
+
+width: 70%;
+// align-items: center;
+`
+
+
+const INPUT = Style.input`
+margin: 5px 0 5px 0;
+height: 40px;
+border-radius: 6px;
+border: none;
+padding-left: 10px;
+`
+
+const BUTTON = Style.button`
+margin-top: 15px;
+height: 45px;
+border-radius: 5px;
+border: none;
+margin-bottom: 60px;
+`
+
+const DIV1 = Style.div`
+display: flex;
+flex-direction: row;
+
+`
+const H4 = Style.h4`
+margin: 0;
+margin-right: 10px;
+color: white;
+margin-right: 45px;
+`
 
 
 
@@ -63,35 +126,48 @@ const Login = (props) => {
 
 
     return (
+        <BKGRNDDIV>
+            <TITLEDIV>
+                Appraisely
+            </TITLEDIV>
 
-        <DIV>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    placeholder='email'
-                    name='email'
-                    value={users.email}
-                    onChange={onChangeHandler}
-                />
+                <DIV>
+                    <FORM onSubmit={handleSubmit}>
+                        <INPUT className='input'
+                            type='text'
+                            placeholder='email'
+                            name='email'
+                            value={users.email}
+                            onChange={onChangeHandler}
+                        />
 
-                <input
-                    type='text'
-                    placeholder='password'
-                    name='password'
-                    value={users.password}
-                    onChange={onChangeHandler}
-                />
-                <button type='submit'>Submit</button>
-
-
-            </form>
-            <Link to='/adduser' className='btn'>Signup</Link>
-
-
+                        <INPUT className='input'
+                            type='text'
+                            placeholder='password'
+                            name='password'
+                            value={users.password}
+                            onChange={onChangeHandler}
+                        />
+                        <BUTTON className='btn-hover' type='submit'>Login</BUTTON>
 
 
+                    </FORM>
 
-        </DIV>
+
+                    <DIV1>
+                        <H4>Dont have an account?</H4>
+                        <Link to='/adduser' className='signup-class'>Signup</Link>
+
+                    </DIV1>
+
+
+
+
+
+                </DIV>
+
+        </BKGRNDDIV>
+
 
     )
 }

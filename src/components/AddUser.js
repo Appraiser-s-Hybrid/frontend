@@ -1,13 +1,19 @@
 import Axios from 'axios';
 import React, { useState } from "react";
+import { Link, Route } from 'react-router-dom';
 
 
 
-const AddUser = () => {
+
+const AddUser = (props) => {
     const [users, setUsers] = useState({
         email: '',
         password: '',
     });
+
+
+
+  
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -15,6 +21,7 @@ const AddUser = () => {
         Axios
             .post('https://hidden-chamber-84113.herokuapp.com/api/v1/users', users)
             .then(localStorage.setItem('token', 'users'))
+            .then(props.history.push('/'))
 
     }
 
@@ -47,7 +54,7 @@ const AddUser = () => {
                     value={users.password}
                     onChange={onChangeHandler}
                 />
-                <button type='submit'>Submit</button>
+                <button type='submit'>Create Profile</button>
 
 
             </form>
@@ -57,3 +64,7 @@ const AddUser = () => {
 }
 
 export default AddUser;
+
+
+
+
