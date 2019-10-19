@@ -27,7 +27,10 @@
 }
 
 
-
+body {
+  background-image: url("./background-img.jpg");
+  background-size: 950px 950px;
+}
 
 
 

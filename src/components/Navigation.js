@@ -1,26 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
-import Style from 'styled-components';
+const Navigation = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const DIV = Style.div`
-background-color: gray;
-width: 100%;
-margin-bottom: 20px;
-height: 50px;
-`
+  const toggle = () => setIsOpen(!isOpen);
 
-
-
-const Navigation = () => {
-
-
-    return (
-        <DIV>
-            <nav>
-                <a></a>
-            </nav>
-        </DIV>
-    )
+  return (
+    <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">Logo</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/Home/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">About Us</NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Account
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Log In
+                </DropdownItem>
+                <DropdownItem>
+                  Log out
+                </DropdownItem>
+                
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 }
 
+  
 export default Navigation;
