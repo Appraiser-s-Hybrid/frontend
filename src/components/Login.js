@@ -46,6 +46,7 @@ height: 40px;
 border-radius: 6px;
 border: none;
 padding-left: 10px;
+border: 1px solid  #976363;
 `
 
 const BUTTON = Style.button`
