@@ -27,6 +27,15 @@
 }
 
 
+
+
+
+
+
+
+
+
+/*This styling is for the login and adduser page*/
 .signup-class{
   text-decoration: none;
   color: white;
@@ -49,6 +58,16 @@
 
 }
 
+.btn-hover1:hover{
+  background-color: white;
+  color: #00FFFF;
+}
+
+
+.btn-hover1{
+  font-size: 1rem;
+
+}
 .btn-hover{
   font-size: 1rem;
 }
@@ -62,3 +81,4 @@
     border: 1px solid  	#00FFFF;
 
 }
+/*end css for login and sign up page*/

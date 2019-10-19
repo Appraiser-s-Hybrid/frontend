@@ -127,7 +127,7 @@ const AddUser = (props) => {
                         value={users.password}
                         onChange={onChangeHandler}
                     />
-                    <BUTTON className='btn-hover' type='submit'>Create Profile</BUTTON>
+                    <BUTTON className='btn-hover1' type='submit'>Create Profile</BUTTON>
 
 
                 </FORM>
