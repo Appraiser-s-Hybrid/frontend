@@ -9,6 +9,7 @@ background-color: #C4C4C4;
 border-radius: 5px;
 padding: 15px;
 width: 390px;
+margin-top: 5%;
 `
 const TITLEDIV = Style.div`
 background-color: #F6F6F6;
