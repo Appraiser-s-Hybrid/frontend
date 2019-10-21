@@ -61,13 +61,15 @@ margin-bottom: 60px;
 const DIV1 = Style.div`
 display: flex;
 flex-direction: row;
+align-items: center;
 
 `
 const H4 = Style.h4`
 margin: 0;
-margin-right: 10px;
+margin-right: 7px;
 color: white;
-margin-right: 45px;
+font-size: 1.01rem;
+padding-bottom: 3px;
 `
 
 
