@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import HousingCard from "./HousingCard";
 
 const OnLogin = ({ values, errors, touched, status }) => {
     const [params, setParams] = useState([]);
@@ -76,9 +77,10 @@ const OnLogin = ({ values, errors, touched, status }) => {
                 <button type="submit">SEARCH</button>
             </Form>
             <div>
-                {params.map(param => (
+                <HousingCard />
+                {/* {params.map(param => (
                     <p>{param.zip}</p>
-                ))}
+                ))} */}
             </div>
         </div>
     );
