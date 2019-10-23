@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+
 import HousingCard from "./HousingCard";
 import Style from 'styled-components';
 import Other from './Other'
 import Axios from 'axios';
+
 
 const DIV = Style.div`
 // background-color:
@@ -128,7 +130,7 @@ const OnLogin = ({touched, errors}) => {
                     name="newData" 
                     placeholder="TBD" />
                 </label>
-                <button type="submit">SEARCH</button>
+
             <div>
                 <HousingCard />
                 {/* {params.map(param => (
@@ -139,13 +141,15 @@ const OnLogin = ({touched, errors}) => {
                 <button onClick={shows} type="submit">SEARCH</button>
             </FORM>
 
-
             {
                 show ? <Other /> : null
             }
             
         
         </DIV>
+                
+                
+                
     );
 };
 
