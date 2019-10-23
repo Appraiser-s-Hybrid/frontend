@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
-<<<<<<< HEAD
+
+
 import HousingCard from "./HousingCard";
-=======
 import Style from 'styled-components';
 import Other from './Other'
 import Axios from 'axios';
->>>>>>> 083bbcc24d4224244cae345e4681fef50e5ee44d
+
 
 const DIV = Style.div`
 // background-color:
@@ -131,30 +130,16 @@ const OnLogin = ({touched, errors}) => {
                     name="newData" 
                     placeholder="TBD" />
                 </label>
-<<<<<<< HEAD
-                <button type="submit">SEARCH</button>
-            </Form>
-<<<<<<< HEAD
 
-
-            {/* <div>
-                {params.map(param => (
-                    <p>{param.zip}</p>
-                ))}
-            </div> */}
-=======
             <div>
                 <HousingCard />
                 {/* {params.map(param => (
                     <p>{param.zip}</p>
                 ))} */}
             </div>
->>>>>>> 47c8311adfc5276f1c029da715e19f9df3498b39
-        </div>
-=======
+            
                 <button onClick={shows} type="submit">SEARCH</button>
             </FORM>
-
 
             {
                 show ? <Other /> : null
@@ -162,7 +147,9 @@ const OnLogin = ({touched, errors}) => {
             
         
         </DIV>
->>>>>>> 083bbcc24d4224244cae345e4681fef50e5ee44d
+                
+                
+                
     );
 };
 
