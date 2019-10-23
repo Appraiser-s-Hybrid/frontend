@@ -2,64 +2,54 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import Style from 'styled-components';
+import Other from './Other'
+import Axios from 'axios';
 
-const OnLogin = ({ values, errors, touched, status }) => {
+const DIV = Style.div`
+// background-color:
+`
+const FORM = Style.form``
 
 
+const OnLogin = ({touched, errors}) => {
 
+
+    const [show, setShow] = useState(false)
     const [params, setParams] = useState({
         regionidzip: '',
         bathroomcnt: '',
         bedroomcnt: '',
-
-        
-
-
     });
 
 
-    const [param, setParam] = useState('');
-    const [search, setSearch] = useState('');
-    const [filteredParams, setFilteredParams] = useState([]);
 
 
-
-
-    const onInputChange = e => {
-        const { value } = e.target;
-        setParam(value);
-    };
-
-
-
-
-    const onSearchChange = e => {
-        const { value } = e.target;
-        setSearch(value);
-        setFilteredParams(params.filter(param => param.includes(search)));
-    }
-
-
-
-    const onFormSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        setParams([...params, param]);
-        setParam('');
-    };
+        Axios
+        .get('', {
+            params: {
+                regionidzip: '',
+            }
+    }
+    
 
 
 
-    useEffect(() => {
-        if (status) {
-            setParams([...params, status]);
-        }
-    }, [status]);
+
+
+    const shows = e => {
+        e.preventDefault();
+        setShow(true)}
+
+
 
 
     return (
         
-        <div>
-            <Form className="user-form">
+        <DIV>
+            <FORM className="user-form" onSubmit={handleSubmit}>
 
 
 
@@ -69,9 +59,8 @@ const OnLogin = ({ values, errors, touched, status }) => {
                 type="number" 
                 name="sqft" 
                 placeholder="Square Feet"
-
-
                 min="0" />
+
                 {touched.sqft && errors.sqft &&(
                     <p className="error">{errors.sqft}</p>
                 )}
@@ -138,16 +127,16 @@ const OnLogin = ({ values, errors, touched, status }) => {
                     name="newData" 
                     placeholder="TBD" />
                 </label>
-                <button type="submit">SEARCH</button>
-            </Form>
+                <button onClick={shows} type="submit">SEARCH</button>
+            </FORM>
 
 
-            {/* <div>
-                {params.map(param => (
-                    <p>{param.zip}</p>
-                ))}
-            </div> */}
-        </div>
+            {
+                show ? <Other /> : null
+            }
+            
+        
+        </DIV>
     );
 };
 
@@ -179,3 +168,47 @@ const FormikUserSearch = withFormik({
 
 
 export default FormikUserSearch;
+
+
+/* <div>
+                {params.map(param => (
+                    <p>{param.zip}</p>
+                ))}
+            </div> */
+
+    // const [param, setParam] = useState('');
+    // const [search, setSearch] = useState('');
+    // const [filteredParams, setFilteredParams] = useState([]);
+
+
+
+    // const onInputChange = e => {
+    //     const { value } = e.target;
+    //     setParam(value);
+    // };
+
+
+
+
+    // const onSearchChange = e => {
+    //     const { value } = e.target;
+    //     setSearch(value);
+    //     setFilteredParams(params.filter(param => param.includes(search)));
+    // }
+
+
+
+    // const onFormSubmit = e => {
+    //     e.preventDefault();
+    //     setParams([...params, param]);
+    //     setParam('');
+    // };
+
+
+
+
+    // useEffect(() => {
+    //     if (status) {
+    //         setParams([...params, status]);
+    //     }
+    // }, [status]);
