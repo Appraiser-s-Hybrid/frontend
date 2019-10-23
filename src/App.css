@@ -88,3 +88,8 @@ body {
 
 }
 /*end css for login and sign up page*/
+
+.user-form{
+  display: flex;
+  flex-direction: column;
+}
