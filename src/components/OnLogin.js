@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import HousingCard from "./HousingCard";
 
 const OnLogin = ({ values, errors, touched, status }) => {
 
@@ -140,6 +141,7 @@ const OnLogin = ({ values, errors, touched, status }) => {
                 </label>
                 <button type="submit">SEARCH</button>
             </Form>
+<<<<<<< HEAD
 
 
             {/* <div>
@@ -147,6 +149,14 @@ const OnLogin = ({ values, errors, touched, status }) => {
                     <p>{param.zip}</p>
                 ))}
             </div> */}
+=======
+            <div>
+                <HousingCard />
+                {/* {params.map(param => (
+                    <p>{param.zip}</p>
+                ))} */}
+            </div>
+>>>>>>> 47c8311adfc5276f1c029da715e19f9df3498b39
         </div>
     );
 };
