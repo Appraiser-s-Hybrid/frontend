@@ -31,10 +31,16 @@ const OnLogin = ({touched, errors}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        console.log(params);
         Axios
         .post('https://git.heroku.com/appraisely.git', params)
-        .then(res => res.data)
-        .catch()    
+        .then(res => {
+            console.log(res.data)
+            return res.data 
+        })
+        .catch(error => {
+            console.error('Service Error', error);
+        })    
     }
     
     
@@ -90,11 +96,12 @@ const OnLogin = ({touched, errors}) => {
                 type="number" 
                 name="regionidzip" 
                 placeholder="Zip Code" 
-                min="0"
+                min="10000"
+                max="99999"
                 value={params.regionidzip} 
                 onChange={onChangeHandler}
                 />
-                {touched.zip && errors.zip &&(
+                {touched.regionidzip && errors.regionidzip &&(
                     <p className="error">You must enter a Zip Code in order to receive results!</p>
                 )}
                 </label>
@@ -104,17 +111,17 @@ const OnLogin = ({touched, errors}) => {
 
 
                 <label>
-                    Number of Rooms: 
+                    Number of Bederooms: 
                 <Field
                 type="number" 
                 name="bedroomcnt" 
-                placeholder="Numbe of Rooms" 
+                placeholder="Numbe of Bedrooms" 
                 min="0"
                 value={params.bedroomcnt}
                 onChange={onChangeHandler}
                 />
-                {touched.rooms && errors.rooms &&(
-                    <p className="error">{errors.rooms}</p>
+                {touched.bedroomcnt && errors.bedroomcnt &&(
+                    <p className="error">{errors.bedroomcnt}</p>
                 )}
                 </label>
 
@@ -125,25 +132,25 @@ const OnLogin = ({touched, errors}) => {
                 <Field 
                 type="number" 
                 name="bathroomcnt" 
-                placeholder="Number of Bedrooms" 
+                placeholder="Number of Bathrooms" 
                 min="0" 
                 value={params.bathroomcnt}
                 onChange={onChangeHandler}
                 />
-                {touched.bathrooms && errors.bathrooms &&(
-                    <p className="error">{errors.bathrooms}</p>
+                {touched.bathroomcnt && errors.bathroomcnt &&(
+                    <p className="error">{errors.bathroomcnt}</p>
                 )}
                 </label>
 
 
 
-                <label>
+                {/* <label>
                     TBD: 
                     <Field 
                     type="text" 
                     name="newData" 
                     placeholder="TBD" />
-                </label>
+                </label> */}
 
             <div>
                 <HousingCard />
@@ -152,7 +159,7 @@ const OnLogin = ({touched, errors}) => {
                 ))} */}
             </div>
             
-                <button onClick={shows} type="submit">SEARCH</button>
+                <button onSubmit={shows} type="submit">SEARCH</button>
             </FORM>
 
             {
@@ -168,22 +175,22 @@ const OnLogin = ({touched, errors}) => {
 };
 
 const FormikUserSearch = withFormik({
-    mapPropsToValues({ sqft, zip, rooms, bathrooms, TBD }) {
+    mapPropsToValues({ regionidzip, bedroomcnt, bathroomcnt }) {
         return {
-            sqft: sqft || "",
-            zip: zip || "",
-            rooms: rooms || "",
-            bathrooms: bathrooms || "",
-            TBD: TBD || ""
+            // sqft: sqft || "",
+            regionidzip: regionidzip || "",
+            bedroomcnt: bedroomcnt || "",
+            bathroomcnt: bathroomcnt || "",
+            // TBD: TBD || ""
         };
     },
 
     validationSchema: Yup.object().shape({
-        sqft: Yup.number(),
-        zip: Yup.number().required(),
-        rooms: Yup.number(),
-        bathrooms: Yup.number(),
-        TBD: Yup.mixed()
+        // sqft: Yup.number(),
+        regionidzip: Yup.number().required(),
+        bedroomcnt: Yup.number(),
+        bathroomcnt: Yup.number()
+        // TBD: Yup.mixed()
     }),
 
     handleSubmit(values, { setStatus }) {
