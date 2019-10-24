@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Style from 'styled-components';
 
-
+import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 import {
   Collapse,
@@ -28,12 +28,17 @@ const Navigation = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
+
+
             <NavItem>
-              <NavLink href="/Home/">Home</NavLink>
+              <Link to="/Home/">Home</Link>
             </NavItem>
+
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">About Us</NavLink>
+              <Link to='/About'>About Us</Link>
             </NavItem>
+
+         
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Account
