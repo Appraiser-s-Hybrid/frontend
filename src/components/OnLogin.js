@@ -57,11 +57,11 @@ const OnLogin = ({touched, errors}) => {
 
 
                 <label>
-                    Square Feet: 
+                    {/* Square Feet:  */}
                 <Field 
                 type="number" 
                 name="sqft" 
-                placeholder="Square Feet"
+                placeholder="Square Ft"
                 min="0" />
 
                 {touched.sqft && errors.sqft &&(
@@ -74,7 +74,7 @@ const OnLogin = ({touched, errors}) => {
 
 
                 <label>
-                    Zip Code: 
+                    {/* Zip Code:  */}
                 <Field 
                 type="number" 
                 name="zip" 
@@ -92,11 +92,11 @@ const OnLogin = ({touched, errors}) => {
 
 
                 <label>
-                    Number of Rooms: 
+                    {/* Number of Rooms:  */}
                 <Field
                 type="number" 
                 name="rooms" 
-                placeholder="Numbe of Rooms" 
+                placeholder="Rooms" 
                 min="0"
                 value={params.bedroomcnt}
                 />
@@ -108,11 +108,11 @@ const OnLogin = ({touched, errors}) => {
 
 
                 <label>
-                    Number of Bathrooms: 
+                    {/* Number of Bathrooms:  */}
                 <Field 
                 type="number" 
                 name="bathrooms" 
-                placeholder="Number of Bedrooms" 
+                placeholder="Bedrooms" 
                 min="0" 
                 value={params.bathroomcnt}
                 />
@@ -124,7 +124,7 @@ const OnLogin = ({touched, errors}) => {
 
 
                 <label>
-                    TBD: 
+                    {/* TBD:  */}
                     <Field 
                     type="text" 
                     name="newData" 

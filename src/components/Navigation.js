@@ -31,11 +31,11 @@ const Navigation = (props) => {
 
 
             <NavItem>
-              <Link to="/Home/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </NavItem>
 
             <NavItem>
-              <Link to='/About'>About Us</Link>
+              <NavLink to='/About'>About Us</NavLink>
             </NavItem>
 
          
