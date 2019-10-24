@@ -16,10 +16,11 @@ const OnLogin = ({touched, errors}) => {
 
 
     const [show, setShow] = useState(false)
+    
     const [params, setParams] = useState({
-        regionidzip: '',
-        bathroomcnt: '',
-        bedroomcnt: '',
+        regionidzip: null,
+        bathroomcnt: null,
+        bedroomcnt: null,
     });
 
 
@@ -28,13 +29,21 @@ const OnLogin = ({touched, errors}) => {
     const handleSubmit = e => {
         e.preventDefault();
         Axios
-        .get('', {
-            params: {
-                regionidzip: '',
-            }
-    })}
+        .post('https://git.heroku.com/appraisely.git', params)
+        .then(res => res.data)
+        .catch()    
+    }
     
     
+
+
+    const onChangeHandler = e => {
+        e.preventDefault();
+        setParams({
+            ...params, [e.target.name]: e.target.value
+             
+        })
+    }
 
 
 
@@ -53,18 +62,20 @@ const OnLogin = ({touched, errors}) => {
 
 
 
-                <label>
+                {/* <label>
                     Square Feet: 
                 <Field 
                 type="number" 
                 name="sqft" 
                 placeholder="Square Feet"
-                min="0" />
+                min="0"
+                
+                />
 
                 {touched.sqft && errors.sqft &&(
                     <p className="error">{errors.sqft}</p>
                 )}
-                </label>
+                </label> */}
 
 
 
@@ -74,10 +85,11 @@ const OnLogin = ({touched, errors}) => {
                     Zip Code: 
                 <Field 
                 type="number" 
-                name="zip" 
+                name="regionidzip" 
                 placeholder="Zip Code" 
                 min="0"
                 value={params.regionidzip} 
+                onChange={onChangeHandler}
                 />
                 {touched.zip && errors.zip &&(
                     <p className="error">You must enter a Zip Code in order to receive results!</p>
@@ -92,10 +104,11 @@ const OnLogin = ({touched, errors}) => {
                     Number of Rooms: 
                 <Field
                 type="number" 
-                name="rooms" 
+                name="bedroomcnt" 
                 placeholder="Numbe of Rooms" 
                 min="0"
                 value={params.bedroomcnt}
+                onChange={onChangeHandler}
                 />
                 {touched.rooms && errors.rooms &&(
                     <p className="error">{errors.rooms}</p>
@@ -108,10 +121,11 @@ const OnLogin = ({touched, errors}) => {
                     Number of Bathrooms: 
                 <Field 
                 type="number" 
-                name="bathrooms" 
+                name="bathroomcnt" 
                 placeholder="Number of Bedrooms" 
                 min="0" 
                 value={params.bathroomcnt}
+                onChange={onChangeHandler}
                 />
                 {touched.bathrooms && errors.bathrooms &&(
                     <p className="error">{errors.bathrooms}</p>
