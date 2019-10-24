@@ -29,7 +29,9 @@
 
 body {
   background-image: url("./background-img.jpg");
-  background-size: 950px 950px;
+  background-size: 1250px 950px;
+  background-position: center center; 
+
 }
 
 
@@ -86,3 +88,8 @@ body {
 
 }
 /*end css for login and sign up page*/
+
+.user-form{
+  display: flex;
+  flex-direction: column;
+}

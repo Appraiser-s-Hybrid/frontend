@@ -38,6 +38,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: red[500],
   },
 }));
+
+
 export default function HousingCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
