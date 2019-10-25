@@ -27,17 +27,29 @@ const OnLogin = ({touched, errors}) => {
     });
 
 
+    const [dsprice, setdsPrice] = useState({
+        results: ''
+    });
 
+    // taxvaluedollarcnt
+
+    let mergedState = {...params, ...setdsPrice}
 
     const handleSubmit = e => {
         e.preventDefault();
         console.log(params);
         Axios
-        .post('https://git.heroku.com/appraisely.git', params)
+        .post('https://appraisely.herokuapp.com/predict', params)
         .then(res => {
             console.log(res.data)
-            return res.data 
+            setdsPrice(res.data)
         })
+        // .then(
+        //     Axios
+        //     .post('https://hidden-chamber-84113.herokuapp.com/api/v1/users', mergedState)
+        //     .then()
+        // )
+
         .catch(error => {
             console.error('Service Error', error);
         })    
@@ -85,9 +97,6 @@ const OnLogin = ({touched, errors}) => {
                     <p className="error">{errors.sqft}</p>
                 )}
                 </label> */}
-
-
-
 
 
                 <label>
