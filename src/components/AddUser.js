@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import React, { useState } from "react";
-import { Link, Route } from 'react-router-dom';
+
 import Style from 'styled-components';
 
 
@@ -59,18 +59,18 @@ border: none;
 margin-bottom: 60px;
 `
 
-const DIV1 = Style.div`
-display: flex;
-flex-direction: row;
+// const DIV1 = Style.div`
+// display: flex;
+// flex-direction: row;
 
-`
-const H4 = Style.h4`
-margin: 0;
-margin-right: 10px;
-color: white;
-margin-right: 45px;
-font-size: 1.4rem;
-`
+// `
+// const H4 = Style.h4`
+// margin: 0;
+// margin-right: 10px;
+// color: white;
+// margin-right: 45px;
+// font-size: 1.4rem;
+// `
 
 
 

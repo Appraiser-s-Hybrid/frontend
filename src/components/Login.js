@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useState } from "react";
 import Style from 'styled-components';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const BKGRNDDIV = Style.div`
@@ -86,7 +86,7 @@ const Login = (props) => {
 
     function matchFunc(data) {
         // console.log(data)
-        data.map(x => {
+        data.map( x => {
             // console.log(x.password, users.password)
             if (x.password === users.password && x.email === users.email) {
                 localStorage.setItem('token', 'users')
