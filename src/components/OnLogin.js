@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withFormik, Field } from 'formik';
+import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 
@@ -21,9 +21,9 @@ const OnLogin = ({touched, errors}) => {
     const [show, setShow] = useState(false)
     
     const [params, setParams] = useState({
-        regionidzip: null,
-        bathroomcnt: null,
-        bedroomcnt: null,
+        regionidzip: "",
+        bathroomcnt: "",
+        bedroomcnt: "",
     });
 
 
@@ -75,7 +75,7 @@ const OnLogin = ({touched, errors}) => {
     return (
         
         <DIV>
-            <FORM className="user-form" onSubmit={handleSubmit}>
+            <Form className="user-form" onSubmit={handleSubmit}>
 
 
 
@@ -90,14 +90,12 @@ const OnLogin = ({touched, errors}) => {
                 value={params.regionidzip} 
                 onChange={onChangeHandler}
                 />
-                {touched.regionidzip && errors.regionidzip &&(
-                    <p className="error">You must enter a Zip Code in order to receive results!</p>
+                {
+                    touched.regionidzip && errors.regionidzip ? null : (
+                    <p className="error">{errors.regionidzip}</p>
                 )}
+
                 </label>
-
-
-
-
 
                 <label>
                     
@@ -109,7 +107,7 @@ const OnLogin = ({touched, errors}) => {
                 value={params.bedroomcnt}
                 onChange={onChangeHandler}
                 />
-                {touched.bedroomcnt && errors.bedroomcnt &&(
+                {touched.bedroomcnt && errors.bedroomcnt ? null : (
                     <p className="error">{errors.bedroomcnt}</p>
                 )}
                 </label>
@@ -126,8 +124,8 @@ const OnLogin = ({touched, errors}) => {
                 value={params.bathroomcnt}
                 onChange={onChangeHandler}
                 />
-                {touched.bathroomcnt && errors.bathroomcnt &&(
-                    <p className="error">{errors.bathroomcnt}</p>
+                {touched.bathroomcnt && errors.bathroomcnt ? null : (
+                <p className="error">{errors.bathroomcnt}</p>
                 )}
                 </label>
 
@@ -138,16 +136,14 @@ const OnLogin = ({touched, errors}) => {
             </div>
             
                 <button onSubmit={shows} type="submit">SEARCH</button>
-            </FORM>
+            </Form>
 
             {
                 show ? <HousingCard /> : null
             }
             
         
-        </DIV>
-                
-                
+        </DIV>                
                 
     );
 };
@@ -155,20 +151,16 @@ const OnLogin = ({touched, errors}) => {
 const FormikUserSearch = withFormik({
     mapPropsToValues({ regionidzip, bedroomcnt, bathroomcnt }) {
         return {
-            // sqft: sqft || "",
             regionidzip: regionidzip || "",
             bedroomcnt: bedroomcnt || "",
-            bathroomcnt: bathroomcnt || "",
-            // TBD: TBD || ""
+            bathroomcnt: bathroomcnt || ""
         };
     },
 
     validationSchema: Yup.object().shape({
-        // sqft: Yup.number(),
-        regionidzip: Yup.number().required(),
-        bedroomcnt: Yup.number(),
-        bathroomcnt: Yup.number()
-        // TBD: Yup.mixed()
+        regionidzip: Yup.number().required("Please Enter A Zip Code"),
+        bedroomcnt: Yup.number().required("Please Designate the Number of Bedrooms"),
+        bathroomcnt: Yup.number().required("Please Enter a Valid Number of Bathrooms")
     }),
 
     handleSubmit(values, { setStatus }) {
